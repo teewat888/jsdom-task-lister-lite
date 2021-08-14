@@ -31,11 +31,16 @@ document.addEventListener("DOMContentLoaded", () => {
             newTaskDesc = "<span style='color:green'>"+newTaskDesc+"</span>";
             break;
         }
-
-        task.innerHTML = duedate+" "+newTaskDesc+" <button id='"+bPrefix+"'>X</button>";
+        const button = document.createElement('button');
+        button.innerText = "X";
+        console.log("button: ",button);
+        //task.innerHTML = duedate+" "+newTaskDesc+" <button id='"+bPrefix+"'>X</button>";
+        task.innerHTML = duedate+" "+newTaskDesc;
+        console.log("task.innerhtml: ",task.innerHTML);
+        task.append(button);
         tasks.appendChild(task);
-        const bx = document.getElementById(bPrefix);
-        bx.addEventListener('click',(e)=>{
+        //const bx = document.getElementById(bPrefix);
+        button.addEventListener('click',(e)=>{
           task.remove();
         });
       }
